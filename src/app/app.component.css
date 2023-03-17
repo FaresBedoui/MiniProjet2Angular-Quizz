@@ -1,0 +1,12 @@
+.navbar{
+  justify-content: space-between;
+}
+.menu{
+  justify-content: space-between;
+}
+button{
+  margin-right: 200px ;
+}
+span{
+  padding-right: 1rem;
+}

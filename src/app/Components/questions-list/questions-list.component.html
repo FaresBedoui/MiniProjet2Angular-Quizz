@@ -1,0 +1,23 @@
+<table>
+  <thead>
+    <tr>
+      <th>Sujet</th>
+      <th>Enoncé</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let question of questions; let i = index">
+      <td>{{ question.subject }}</td>
+      <td>{{ question.statement }}</td>
+      <td>
+        <button mat-icon-button color="primary" routerLink="/questionsList/edit/{{ i }}">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="onDelete(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

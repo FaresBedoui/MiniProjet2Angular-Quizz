@@ -1,0 +1,83 @@
+
+<div class="InterBody">
+  
+  {{this.questionIndex}}
+
+  <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="question-subject" class="form-label">Subject:</label>
+      <input type="text" formControlName="subject" id="question-subject" class="form-control">
+      <mat-error *ngIf="questionForm.controls['subject'].hasError('required') && questionForm.controls['subject'].touched">
+        Subject is required.
+      </mat-error>
+    </div>
+
+    <div>
+      <label for="question-statement" class="form-label">Statement:</label>
+      <textarea formControlName="statement" id="question-statement" class="form-control"></textarea>
+      <mat-error *ngIf="questionForm.controls['statement'].hasError('required') && questionForm.controls['statement'].touched">
+        Statement is required.
+      </mat-error>
+    </div>
+
+    <div>
+      <label class="form-label">Choices:</label>
+      <div formGroupName="choices">
+        <div>
+          <label for="question-choice1" class="form-label">Choice 1:</label>
+          <input type="text" formControlName="choice1" id="question-choice1" class="form-control">
+          <mat-error *ngIf="questionForm.get('choices.choice1')?.hasError('required') && questionForm.get('choices.choice1')?.touched">
+            Choice 1 is required.
+          </mat-error>
+          <label>
+            <input type="radio" formControlName="correctChoice" value="choice1" name="correctChoice">
+            Correct
+          </label>
+        </div>
+
+        <div>
+          <label for="question-choice2" class="form-label">Choice 2:</label>
+          <input type="text" formControlName="choice2" id="question-choice2" class="form-control">
+          <mat-error *ngIf="questionForm.get('choices.choice2')?.hasError('required') && questionForm.get('choices.choice2')?.touched">
+            Choice 2 is required.
+          </mat-error>
+          <label>
+            <input type="radio" formControlName="correctChoice" value="choice2" name="correctChoice">
+            Correct
+          </label>
+        </div> 
+
+        <div>
+          <label for="question-choice3" class="form-label">Choice 3:</label>
+          <input type="text" formControlName="choice3" id="question-choice3" class="form-control">
+          <mat-error *ngIf="questionForm.get('choices.choice3')?.hasError('required') && questionForm.get('choices.choice3')?.touched">
+            Choice 3 is required.
+          </mat-error>
+          <label>
+            <input type="radio" formControlName="correctChoice" value="choice3" name="correctChoice">
+            Correct
+          </label>
+        </div> 
+
+        <div>
+          <label for="question-choice4" class="form-label">Choice 4:</label>
+          <input type="text" formControlName="choice4" id="question-choice4" class="form-control">
+          <mat-error *ngIf="questionForm.get('choices.choice4')?.hasError('required') && questionForm.get('choices.choice4')?.touched">
+            Choice 4 is required.
+          </mat-error>
+          <label>
+            <input type="radio" formControlName="correctChoice" value="choice4" name="correctChoice">
+            Correct
+          </label>
+        </div>
+        
+        <br>
+      </div>
+    </div>
+    {{this.questionIndex}}
+    {{this.questionForm.value.statement}}
+    {{this.questionForm.value.choices.correctChoice}}
+    <button mat-flat-button color="primary" type="submit" [disabled]="questionForm.invalid"> Sauvegarder </button>
+
+  </form>
+</div>
